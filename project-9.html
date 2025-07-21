@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive prototype of the cost objects table</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @font-face {
+            font-family: 'perk-sans';
+            src: url('fonts/perk-sans-regular.otf') format('opentype');
+            font-weight: 400;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'perk-sans';
+            src: url('fonts/perk-sans-medium.otf') format('opentype');
+            font-weight: 500;
+            font-style: normal;
+        }
+        body {
+            font-family: "perk-sans", sans-serif;
+            background-color: #F5F5EB;
+        }
+        .font-perk-sans-medium {
+            font-family: "perk-sans", sans-serif;
+            font-weight: 500;
+            font-style: normal;
+        }
+        .font-perk-sans-regular {
+            font-family: "perk-sans", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+        .logo {
+            width: 106px;
+            height: 26px;
+        }
+    </style>
+</head>
+<body class="bg-[#F5F5EB] text-[#14140F]">
+
+    <header class="py-4">
+        <div class="max-w-4xl mx-auto">
+            <a href="index.html">
+                <img src="images/travelperk-logo.svg" alt="TravelPerk Logo" class="logo">
+            </a>
+        </div>
+    </header>
+
+    <main class="py-16">
+        <div class="max-w-2xl mx-auto">
+            <a href="index.html" class="inline-flex items-center gap-2 text-base font-perk-sans-medium mb-6 hover:bg-[#f0f0f0] hover:bg-opacity-50 rounded-lg px-2 py-1 -mx-2 -my-1 transition-colors duration-200">
+                <img src="images/back-arrow.svg" alt="Back" class="w-4 h-4">
+                Back
+            </a>
+
+            <div class="bg-white rounded-2xl shadow-lg p-4 flex justify-center items-center aspect-square">
+                <img src="images/project9-image.png" alt="Screenshot of the cost objects table prototype" class="max-w-full max-h-full object-contain">
+            </div>
+
+            <div class="flex flex-col gap-6 mt-6">
+                <div>
+                    <h1 class="text-4xl font-perk-sans-medium leading-tight">Interactive prototype of the cost objects table</h1>
+                    <div class="flex items-center gap-2 mt-2">
+                        <img src="images/author-davi.png" alt="Davi Magalhães" class="w-5 h-5 rounded-full object-cover">
+                        <p class="text-base font-perk-sans-regular">By Davi Magalhães</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-wrap gap-2">
+                    <span class="bg-[#F5F5EB] text-sm font-perk-sans-medium px-2 py-1 rounded-full flex items-center gap-1.5 border border-[#D2D2C8]">
+                        <img src="images/figma-logo.png" alt="Figma Make" class="w-4 h-4 object-contain">
+                        Figma Make
+                    </span>
+                </div>
+
+                <div class="text-lg font-perk-sans-regular space-y-4">
+                    <p>I've used Figma Make to create an interactive prototype of the cost objects table because it will feature a few things we don't have today, such as nested rows (because one cost object can be inside another cost object, creating a hierarchy among them). The one in the video is the tidiest version, because I've tried a few different things visually but it was impossible to get aligned lines (as you can see in the screenshot). I've also explored a few different ways to allow users to do bulk actions, as this will likely be a big thing too. All in all, it's great to see try out some of these complex interactions in a working prototype.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html> 
