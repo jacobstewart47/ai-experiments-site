@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A web accessibility extension</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @font-face {
+            font-family: 'perk-sans';
+            src: url('fonts/perk-sans-regular.otf') format('opentype');
+            font-weight: 400;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'perk-sans';
+            src: url('fonts/perk-sans-medium.otf') format('opentype');
+            font-weight: 500;
+            font-style: normal;
+        }
+        body {
+            font-family: "perk-sans", sans-serif;
+            background-color: #F5F5EB;
+        }
+        .font-perk-sans-medium {
+            font-family: "perk-sans", sans-serif;
+            font-weight: 500;
+            font-style: normal;
+        }
+        .font-perk-sans-regular {
+            font-family: "perk-sans", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+        .logo {
+            width: 106px;
+            height: 26px;
+        }
+    </style>
+</head>
+<body class="bg-[#F5F5EB] text-[#14140F]">
+
+    <header class="py-4">
+        <div class="max-w-4xl mx-auto">
+            <a href="index.html">
+                <img src="images/travelperk-logo.svg" alt="TravelPerk Logo" class="logo">
+            </a>
+        </div>
+    </header>
+
+    <main class="py-16">
+        <div class="max-w-2xl mx-auto">
+            <a href="index.html" class="inline-flex items-center gap-2 text-lg font-perk-sans-medium mb-6">
+                <img src="images/back-arrow.svg" alt="Back" class="w-6 h-6">
+                Back to experiments
+            </a>
+
+            <div class="bg-white rounded-2xl shadow-lg mb-6">
+                <img src="images/project2-image.png" alt="Screenshot of this website" class="w-full rounded-t-2xl object-cover">
+            </div>
+
+            <div class="flex flex-col gap-6">
+                <div>
+                    <h1 class="text-4xl font-perk-sans-medium leading-tight">This minisite</h1>
+                    <div class="flex items-center gap-2 mt-2">
+                        <img src="images/author-jake.png" alt="Jake Stewart" class="w-5 h-5 rounded-full object-cover">
+                        <p class="text-base font-perk-sans-regular">By Jake Stewart</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-wrap gap-2">
+                    <span class="bg-[#F5F5EB] text-sm font-perk-sans-medium px-2 py-1 rounded-full flex items-center gap-1.5 border border-[#D2D2C8]">
+                        <img src="images/figma-logo.png" alt="Figma" class="w-4 h-4 object-contain">
+                        Figma
+                    </span>
+                    <span class="bg-[#F5F5EB] text-sm font-perk-sans-medium px-2 py-1 rounded-full flex items-center gap-1.5 border border-[#D2D2C8]">
+                        <img src="images/cursor-logo.png" alt="Cursor" class="w-4 h-4 object-contain">
+                        Cursor
+                    </span>
+                    <span class="bg-[#F5F5EB] text-sm font-perk-sans-medium px-2 py-1 rounded-full flex items-center gap-1.5 border border-[#D2D2C8]">
+                        <img src="images/claude-logo.png" alt="Claude" class="w-4 h-4 object-contain">
+                        Claude
+                    </span>
+                    <span class="bg-[#F5F5EB] text-sm font-perk-sans-medium px-2 py-1 rounded-full flex items-center gap-1.5 border border-[#D2D2C8]">
+                        <img src="images/github-logo.png" alt="Github" class="w-4 h-4 object-contain">
+                        Github
+                    </span>
+                    <span class="bg-[#F5F5EB] text-sm font-perk-sans-medium px-2 py-1 rounded-full flex items-center gap-1.5 border border-[#D2D2C8]">
+                        <img src="images/vercel-logo.png" alt="Vercel" class="w-4 h-4 object-contain">
+                        Vercel
+                    </span>
+                </div>
+
+                <div class="text-lg font-perk-sans-regular space-y-4">
+                    <p>Introducing ColorSight, an innovative accessibility Chrome plugin designed specifically for designers. ColorSight enhances your web design experience by providing real-time color contrast analysis and suggestions to ensure compliance with WCAG standards.</p>
+                    
+                    <h3 class="text-xl font-perk-sans-medium">How did you build it?</h3>
+                    <p>I built it as a Chrome extension using plain HTML, CSS, and JavaScript, just to keep it lightweight. I used the Chrome APIs to scan the DOM for common accessibility issues—things like missing alt text, low contrast, or improper heading structure. The UI was really simple: a sidebar that would highlight issues on the page and explain what was wrong and how to fix it. I didn’t use any frameworks because I wanted to really understand how everything worked under the hood.</p>
+                    
+                    <h3 class="text-xl font-perk-sans-medium">How long did it take?</h3>
+                    <p>Roughly a couple of weekends, maybe 15–20 hours all in. It started off as a quick side project but I kept tweaking bits here and there as I learned more about accessibility guidelines and the Chrome extension docs. It probably could’ve been faster, but I was figuring stuff out as I went.</p>
+                    
+                    <h3 class="text-xl font-perk-sans-medium">What was the biggest challenge?</h3>
+                    <p>Getting reliable contrast ratio calculations was weirdly fiddly. The maths for checking WCAG contrast levels is a bit obscure, and getting accurate colour values from computed styles in the browser took some trial and error. Also, just wrapping my head around the quirks of the DOM when you’re injecting scripts into third-party pages — some elements behave in unexpected ways.</p>
+
+                    <h3 class="text-xl font-perk-sans-medium">What was the biggest learning?</h3>
+                    <p>Honestly, just how many accessibility issues are invisible if you’re not actively looking for them. Even sites that seem “clean” visually can be a nightmare for screen readers. It really made me appreciate how much tooling can help designers and devs catch stuff early. Also, building the tool myself made the guidelines stick in my head way more than just reading about them.</p>
+                </div>
+
+                <a href="#" class="bg-[#14140F] text-white text-lg font-perk-sans-medium px-6 py-3 rounded-lg inline-block self-start">Open experiment</a>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html> 
