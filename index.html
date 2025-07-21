@@ -36,6 +36,24 @@
             width: 106px;
             height: 26px;
         }
+        /* Black checkboxes */
+        input[type="checkbox"].custom-black {
+            accent-color: #14140f;
+        }
+        /* For browsers that don't support accent-color */
+        input[type="checkbox"].custom-black:checked {
+            border-color: #14140f;
+            background-color: #14140f;
+        }
+        /* Reset link styling */
+        .reset-link {
+            color: #14140f;
+            text-decoration: none;
+            font-size: 0.75rem;
+        }
+        .reset-link:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body class="bg-[#F5F5EB] text-[#14140F]">
@@ -50,20 +68,48 @@
 
     <main class="py-16">
         <div class="max-w-4xl mx-auto">
-            <div class="flex justify-between items-end mb-12">
+            <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between mb-12 gap-4">
                 <div>
                     <h1 class="text-4xl font-perk-sans-medium">AI experiments</h1>
                     <p class="text-lg font-perk-sans-regular">From the design team at TravelPerk</p>
                 </div>
+                <!-- FILTERS (right aligned) -->
+                <div class="flex gap-4 self-end sm:self-auto">
+                    <!-- Builder Filter Dropdown -->
+                    <div class="relative" id="builder-filter-root">
+                        <button id="builder-filter-btn" type="button" class="flex items-center gap-2 px-4 py-2 bg-white rounded-full border border-[#D2D2C8] shadow-sm font-perk-sans-medium text-base focus:outline-none text-black transition hover:bg-[#f5f5eb] hover:border-[#14140f] hover:text-black">
+                            <span id="builder-label">Builder</span>
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                        </button>
+                        <div id="builder-filter-dropdown" class="hidden absolute right-0 mt-2 w-56 bg-white rounded-2xl shadow-lg border border-[#D2D2C8] z-20 p-4">
+                            <div class="flex flex-col gap-2" id="builder-checkboxes">
+                                <!-- JS will populate checkboxes here -->
+                            </div>
+                            <a href="#" id="builder-reset" class="reset-link mt-3">Reset filters</a>
+                        </div>
+                    </div>
+                    <!-- Stack Filter Dropdown -->
+                    <div class="relative" id="stack-filter-root">
+                        <button id="stack-filter-btn" type="button" class="flex items-center gap-2 px-4 py-2 bg-white rounded-full border border-[#D2D2C8] shadow-sm font-perk-sans-medium text-base focus:outline-none text-black transition hover:bg-[#f5f5eb] hover:border-[#14140f] hover:text-black">
+                            <span id="stack-label">Stack</span>
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                        </button>
+                        <div id="stack-filter-dropdown" class="hidden absolute right-0 mt-2 w-56 bg-white rounded-2xl shadow-lg border border-[#D2D2C8] z-20 p-4">
+                            <div class="flex flex-col gap-2" id="stack-checkboxes">
+                                <!-- JS will populate checkboxes here -->
+                            </div>
+                            <a href="#" id="stack-reset" class="reset-link mt-3">Reset filters</a>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="project-grid">
                 <!-- Card 1 -->
                 <a href="project-1.html" class="bg-white rounded-2xl shadow-lg p-6 flex flex-col gap-6 hover:shadow-sm transition-shadow duration-200 ease-in-out">
-                    <img src="images/chat-gpt-image-1.png" alt="Accessibility Plugin" class="w-16 h-16 object-cover">
                     <div class="flex flex-col gap-4">
                         <div class="flex flex-col gap-1">
-                            <h2 class="text-2xl font-perk-sans-medium leading-tight">An accessibility chrome plugin</h2>
+                            <h2 class="text-2xl font-perk-sans-medium leading-tight">AI powered Chrome Extension</h2>
                             <div class="flex items-center gap-2">
                                 <img src="images/author-jamie.png" alt="Jamie Beech" class="w-5 h-5 rounded-full object-cover">
                                 <p class="text-base font-perk-sans-regular">By Jamie Beech</p>
@@ -71,8 +117,12 @@
                         </div>
                         <div class="flex flex-wrap gap-2">
                             <span class="bg-[#F5F5EB] text-sm font-perk-sans-medium px-2 py-1 rounded-full flex items-center gap-1.5 border border-[#D2D2C8]">
-                                <img src="images/cursor-logo.png" alt="Cursor" class="w-4 h-4 object-contain">
-                                Cursor
+                                <img src="images/chatgpt-logo.png" alt="chat gpt" class="w-4 h-4 object-contain">
+                                Chat GPT
+                            </span>
+                            <span class="bg-[#F5F5EB] text-sm font-perk-sans-medium px-2 py-1 rounded-full flex items-center gap-1.5 border border-[#D2D2C8]">
+                                <img src="images/anthropic-logo.png" alt="Anthropic" class="w-4 h-4 object-contain">
+                                Anthropic API
                             </span>
                             <span class="bg-[#F5F5EB] text-sm font-perk-sans-medium px-2 py-1 rounded-full flex items-center gap-1.5 border border-[#D2D2C8]">
                                 <img src="images/claude-logo.png" alt="Claude" class="w-4 h-4 object-contain">
@@ -82,16 +132,27 @@
                                 <img src="images/github-logo.png" alt="Github" class="w-4 h-4 object-contain">
                                 Github
                             </span>
+                            <span class="bg-[#F5F5EB] text-sm font-perk-sans-medium px-2 py-1 rounded-full flex items-center gap-1.5 border border-[#D2D2C8]">
+                                <img src="images/vercel-logo.png" alt="Vercel" class="w-4 h-4 object-contain">
+                                Vercel
+                            </span>
+                            <span class="bg-[#F5F5EB] text-sm font-perk-sans-medium px-2 py-1 rounded-full flex items-center gap-1.5 border border-[#D2D2C8]">
+                                <img src="images/vscode-logo.png" alt="VS Code" class="w-4 h-4 object-contain">
+                                VS Code
+                            </span>
+                            <span class="bg-[#F5F5EB] text-sm font-perk-sans-medium px-2 py-1 rounded-full flex items-center gap-1.5 border border-[#D2D2C8]">
+                                <img src="images/copilot-logo.png" alt="Copilot" class="w-4 h-4 object-contain">
+                                Copilot
+                            </span>
                         </div>
                     </div>
                 </a>
 
                 <!-- Card 2 -->
                 <a href="project-2.html" class="bg-white rounded-2xl shadow-lg p-6 flex flex-col gap-6 hover:shadow-sm transition-shadow duration-200 ease-in-out">
-                    <img src="images/chat-gpt-image-2.png" alt="Web Accessibility Extension" class="w-16 h-16 object-cover">
                     <div class="flex flex-col gap-4">
                         <div class="flex flex-col gap-1">
-                            <h2 class="text-2xl font-perk-sans-medium leading-tight">This minisite</h2>
+                            <h2 class="text-2xl font-perk-sans-medium leading-tight">Minisite to showcase AI experiments</h2>
                             <div class="flex items-center gap-2">
                                 <img src="images/author-jake.png" alt="Jake Stewart" class="w-5 h-5 rounded-full object-cover">
                                 <p class="text-base font-perk-sans-regular">By Jake Stewart</p>
@@ -107,8 +168,8 @@
                                 Cursor
                             </span>
                             <span class="bg-[#F5F5EB] text-sm font-perk-sans-medium px-2 py-1 rounded-full flex items-center gap-1.5 border border-[#D2D2C8]">
-                                <img src="images/claude-logo.png" alt="Claude" class="w-4 h-4 object-contain">
-                                Claude
+                                <img src="images/chatgpt-logo.png" alt="chat gpt" class="w-4 h-4 object-contain">
+                                Chat GPT
                             </span>
                             <span class="bg-[#F5F5EB] text-sm font-perk-sans-medium px-2 py-1 rounded-full flex items-center gap-1.5 border border-[#D2D2C8]">
                                 <img src="images/github-logo.png" alt="Github" class="w-4 h-4 object-contain">
@@ -124,13 +185,12 @@
 
                 <!-- Card 3 -->
                 <a href="project-3.html" class="bg-white rounded-2xl shadow-lg p-6 flex flex-col gap-6 hover:shadow-sm transition-shadow duration-200 ease-in-out">
-                    <img src="images/chat-gpt-image-3.png" alt="Color Contrast Analyser" class="w-16 h-16 object-cover">
                     <div class="flex flex-col gap-4">
                         <div class="flex flex-col gap-1">
-                            <h2 class="text-2xl font-perk-sans-medium leading-tight">A color contrast analyser tool</h2>
+                            <h2 class="text-2xl font-perk-sans-medium leading-tight">LLM powered flight booker</h2>
                             <div class="flex items-center gap-2">
-                                <img src="images/author-jamie.png" alt="Maria Lopez" class="w-5 h-5 rounded-full object-cover">
-                                <p class="text-base font-perk-sans-regular">By Maria Lopez</p>
+                                <img src="images/author-tannia.png" alt="Maria Lopez" class="w-5 h-5 rounded-full object-cover">
+                                <p class="text-base font-perk-sans-regular">By Tannia Obregón </p>
                             </div>
                         </div>
                         <div class="flex flex-wrap gap-2">
@@ -149,9 +209,104 @@
                         </div>
                     </div>
                 </a>
+
+                <!-- Card 4 -->
+                
             </div>
         </div>
     </main>
+
+    <script>
+// --- FILTER LOGIC ---
+(function() {
+    // Project data extraction
+    const projects = Array.from(document.querySelectorAll('#project-grid > a')).map(card => {
+        // Builder
+        const builder = card.querySelector('p.font-perk-sans-regular').textContent.replace(/^By /, '').trim();
+        // Stack (all badge texts)
+        const stack = Array.from(card.querySelectorAll('span > span, span')).map(span => span.textContent.trim()).filter(Boolean);
+        return { card, builder, stack };
+    });
+    // Unique builders and stack
+    const allBuilders = [...new Set(projects.map(p => p.builder))];
+    const allStack = [...new Set(projects.flatMap(p => p.stack))];
+    // Populate checkboxes (all unchecked by default)
+    function renderCheckboxes(rootId, items, group) {
+        const root = document.getElementById(rootId);
+        root.innerHTML = items.map(item => `
+            <label class="flex items-center gap-2 cursor-pointer">
+                <input type="checkbox" class="${group}-filter-checkbox custom-black" value="${item}">
+                <span class="text-black">${item}</span>
+            </label>
+        `).join('');
+    }
+    renderCheckboxes('builder-checkboxes', allBuilders, 'builder');
+    renderCheckboxes('stack-checkboxes', allStack, 'stack');
+    // Filtering logic
+    function filterProjects() {
+        const checkedBuilders = Array.from(document.querySelectorAll('.builder-filter-checkbox:checked')).map(cb => cb.value);
+        const checkedStack = Array.from(document.querySelectorAll('.stack-filter-checkbox:checked')).map(cb => cb.value);
+        // Show all if no filters are checked
+        const builderFilterActive = checkedBuilders.length > 0;
+        const stackFilterActive = checkedStack.length > 0;
+        projects.forEach(({ card, builder, stack }) => {
+            let show = true;
+            if (builderFilterActive) show = checkedBuilders.includes(builder);
+            if (stackFilterActive) show = show && stack.some(s => checkedStack.includes(s));
+            card.style.display = show ? '' : 'none';
+        });
+        // Update filter count labels
+        document.getElementById('builder-label').textContent =
+            'Builder' + (checkedBuilders.length > 0 ? ` (${checkedBuilders.length})` : '');
+        document.getElementById('stack-label').textContent =
+            'Stack' + (checkedStack.length > 0 ? ` (${checkedStack.length})` : '');
+    }
+    document.getElementById('builder-checkboxes').addEventListener('change', filterProjects);
+    document.getElementById('stack-checkboxes').addEventListener('change', filterProjects);
+    // Reset logic
+    document.getElementById('builder-reset').addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelectorAll('.builder-filter-checkbox').forEach(cb => cb.checked = false);
+        filterProjects();
+    });
+    document.getElementById('stack-reset').addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelectorAll('.stack-filter-checkbox').forEach(cb => cb.checked = false);
+        filterProjects();
+    });
+    // --- DROPDOWN LOGIC ---
+    function setupDropdown(btnId, dropdownId, rootId) {
+        const btn = document.getElementById(btnId);
+        const dropdown = document.getElementById(dropdownId);
+        const root = document.getElementById(rootId);
+        let open = false;
+        function openDropdown() {
+            dropdown.classList.remove('hidden');
+            open = true;
+            setTimeout(() => {
+                document.addEventListener('mousedown', onClickOutside);
+            }, 0);
+        }
+        function closeDropdown() {
+            dropdown.classList.add('hidden');
+            open = false;
+            document.removeEventListener('mousedown', onClickOutside);
+        }
+        function onClickOutside(e) {
+            if (!root.contains(e.target)) closeDropdown();
+        }
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            if (open) closeDropdown();
+            else openDropdown();
+        });
+    }
+    setupDropdown('builder-filter-btn', 'builder-filter-dropdown', 'builder-filter-root');
+    setupDropdown('stack-filter-btn', 'stack-filter-dropdown', 'stack-filter-root');
+    // Initial filter (show all)
+    filterProjects();
+})();
+    </script>
 
 </body>
 </html>

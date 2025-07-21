@@ -55,13 +55,13 @@
                 Back to experiments
             </a>
 
-            <div class="bg-white rounded-2xl shadow-lg mb-6">
-                <img src="images/project2-image.png" alt="Screenshot of this website" class="w-full rounded-t-2xl object-cover">
+            <div class="bg-white rounded-2xl shadow-lg p-4 flex justify-center items-center aspect-square">
+                <img src="images/project2-image.png" alt="Screenshot of this website" class="max-w-full max-h-full object-contain">
             </div>
 
-            <div class="flex flex-col gap-6">
+            <div class="flex flex-col gap-6 mt-6">
                 <div>
-                    <h1 class="text-4xl font-perk-sans-medium leading-tight">This minisite</h1>
+                    <h1 class="text-4xl font-perk-sans-medium leading-tight">Minisite to showcase AI experiments</h1>
                     <div class="flex items-center gap-2 mt-2">
                         <img src="images/author-jake.png" alt="Jake Stewart" class="w-5 h-5 rounded-full object-cover">
                         <p class="text-base font-perk-sans-regular">By Jake Stewart</p>
@@ -78,8 +78,8 @@
                         Cursor
                     </span>
                     <span class="bg-[#F5F5EB] text-sm font-perk-sans-medium px-2 py-1 rounded-full flex items-center gap-1.5 border border-[#D2D2C8]">
-                        <img src="images/claude-logo.png" alt="Claude" class="w-4 h-4 object-contain">
-                        Claude
+                        <img src="images/chatgpt-logo.png" alt="chat gpt" class="w-4 h-4 object-contain">
+                        Chat GPT
                     </span>
                     <span class="bg-[#F5F5EB] text-sm font-perk-sans-medium px-2 py-1 rounded-full flex items-center gap-1.5 border border-[#D2D2C8]">
                         <img src="images/github-logo.png" alt="Github" class="w-4 h-4 object-contain">
@@ -92,19 +92,14 @@
                 </div>
 
                 <div class="text-lg font-perk-sans-regular space-y-4">
-                    <p>Introducing ColorSight, an innovative accessibility Chrome plugin designed specifically for designers. ColorSight enhances your web design experience by providing real-time color contrast analysis and suggestions to ensure compliance with WCAG standards.</p>
-                    
-                    <h3 class="text-xl font-perk-sans-medium">How did you build it?</h3>
-                    <p>I built it as a Chrome extension using plain HTML, CSS, and JavaScript, just to keep it lightweight. I used the Chrome APIs to scan the DOM for common accessibility issues—things like missing alt text, low contrast, or improper heading structure. The UI was really simple: a sidebar that would highlight issues on the page and explain what was wrong and how to fix it. I didn’t use any frameworks because I wanted to really understand how everything worked under the hood.</p>
-                    
-                    <h3 class="text-xl font-perk-sans-medium">How long did it take?</h3>
-                    <p>Roughly a couple of weekends, maybe 15–20 hours all in. It started off as a quick side project but I kept tweaking bits here and there as I learned more about accessibility guidelines and the Chrome extension docs. It probably could’ve been faster, but I was figuring stuff out as I went.</p>
-                    
+                    <h3 class="text-xl font-perk-sans-medium">What is it?</h3>
+                    <p>A small microsite to capture everything we built during a design team hack day. My main aim was to properly start using tools that would allow me to go from Figma to a fully deployed site. I started designing in Figma, and used their MCP server to get building in cursor. I used ChatGPT to help me debug any issues and used the terminal to start pushing to GitHub. After linking my Github repo with a new Vercel project, any changes I pushed would be live instantly.</p>
+
                     <h3 class="text-xl font-perk-sans-medium">What was the biggest challenge?</h3>
-                    <p>Getting reliable contrast ratio calculations was weirdly fiddly. The maths for checking WCAG contrast levels is a bit obscure, and getting accurate colour values from computed styles in the browser took some trial and error. Also, just wrapping my head around the quirks of the DOM when you’re injecting scripts into third-party pages — some elements behave in unexpected ways.</p>
+                    <p>Using the terminal felt like a learning curve. I had to spend some time debugging some issues and I wasn’t familiar with creating and SSH so I could push to Github. I screenshotted any errors and got ChatGPT to walk me through how to solve them.</p>
 
                     <h3 class="text-xl font-perk-sans-medium">What was the biggest learning?</h3>
-                    <p>Honestly, just how many accessibility issues are invisible if you’re not actively looking for them. Even sites that seem “clean” visually can be a nightmare for screen readers. It really made me appreciate how much tooling can help designers and devs catch stuff early. Also, building the tool myself made the guidelines stick in my head way more than just reading about them.</p>
+                    <p>Using the Cursor and Figma’s MCP serve is really effective. I probably could have stayed in Figma a bit longer and made sure I had all the state and auto layout mapped out. Jumping into Cursor too quickly sometimes means you end up switching between tools when building something new. Keeping things organised in Figma helps!</p>
                 </div>
 
                 <a href="#" class="bg-[#14140F] text-white text-lg font-perk-sans-medium px-6 py-3 rounded-lg inline-block self-start">Open experiment</a>
